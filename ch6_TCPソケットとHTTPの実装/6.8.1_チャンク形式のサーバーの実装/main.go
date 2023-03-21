@@ -19,13 +19,6 @@ var contents = []string{
 	"そして、夜でも昼でも、あたりの村へ出てきて、いたずらばかりしました。",
 }
 
-func isGZipAcceptable(request *http.Request) bool {
-	return strings.Index(
-		strings.Join(request.Header["Accept-Encoding"], ","),
-		"gzip",
-	) != -1
-}
-
 func processSession(conn net.Conn) {
 	fmt.Printf("Accept %v\n", conn.RemoteAddr())
 	defer conn.Close()
